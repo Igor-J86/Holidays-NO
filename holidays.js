@@ -8,17 +8,17 @@ document.addEventListener('DOMContentLoaded', function() {
 		var dateLang = "no-NO"; //Date language
 		
 		//Display holidays for NO
-		holidaysDiv.innerHTML += '<p>Første nyttårsdag:<br> '+firstDayFn()+'</p>';
-		holidaysDiv.innerHTML += '<p>Skjærtorsdag:<br> '+easterThursdayFn()+'</p>';
-		holidaysDiv.innerHTML += '<p>Langfredag:<br> '+easterFridayFn()+'</p>';
-		holidaysDiv.innerHTML += '<p>Første påskedag:<br> '+easterDateFn()+'</p>';
-		holidaysDiv.innerHTML += '<p>Andre påskedag:<br> '+easterSecondFn()+'</p>';
-		holidaysDiv.innerHTML += '<p>Kristi Himmelfartsdag:<br> '+kristiHimmelFn()+'</p>';
-		holidaysDiv.innerHTML += '<p>Arbeidernes dag:<br> '+workersDayFn()+'</p>';
-		holidaysDiv.innerHTML += '<p>17. mai:<br> '+nationalDayFn()+'</p>';
-		holidaysDiv.innerHTML += '<p>Andre pinsedag:<br> '+pinseFn()+'</p>';
-		holidaysDiv.innerHTML += '<p>Første juledag:<br> '+firstXmasDayFn()+'</p>';
-		holidaysDiv.innerHTML += '<p>Andre juledag:<br> '+secondXmasDayFn()+'</p>';
+		holidaysDiv.innerHTML += '<p>Første nyttårsdag - <span class="cewe-red">Stengt</span><br> '+firstDayFn()+'</p>';
+		holidaysDiv.innerHTML += '<p>Skjærtorsdag - <span class="cewe-red">Stengt</span><br> '+easterThursdayFn()+'</p>';
+		holidaysDiv.innerHTML += '<p>Langfredag - <span class="cewe-red">Stengt</span><br> '+easterFridayFn()+'</p>';
+		holidaysDiv.innerHTML += '<p>Første påskedag - <span class="cewe-red">Stengt</span><br> '+easterDateFn()+'</p>';
+		holidaysDiv.innerHTML += '<p>Andre påskedag - <span class="cewe-red">Stengt</span><br> '+easterSecondFn()+'</p>';
+		holidaysDiv.innerHTML += '<p>Kristi Himmelfartsdag - <span class="cewe-red">Stengt</span><br> '+kristiHimmelFn()+'</p>';
+		holidaysDiv.innerHTML += '<p>Arbeidernes dag - <span class="cewe-red">Stengt</span><br> '+workersDayFn()+'</p>';
+		holidaysDiv.innerHTML += '<p>17. mai - <span class="cewe-red">Stengt</span><br> '+nationalDayFn()+'</p>';
+		holidaysDiv.innerHTML += '<p>Andre pinsedag - <span class="cewe-red">Stengt</span><br> '+pinseFn()+'</p>';
+		holidaysDiv.innerHTML += '<p>Første juledag - <span class="cewe-red">Stengt</span><br> '+firstXmasDayFn()+'</p>';
+		holidaysDiv.innerHTML += '<p>Andre juledag - <span class="cewe-red">Stengt</span><br> '+secondXmasDayFn()+'</p>';
 		
 		//Set holiday functions for NO
 		function easterThursdayFn() {
