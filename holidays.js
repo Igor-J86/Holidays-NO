@@ -8,98 +8,34 @@ document.addEventListener('DOMContentLoaded', function() {
 		var dateLang = "no-NO"; //Date language
 		
 		//Display holidays for NO
-		holidaysDiv.innerHTML += '<p>Første nyttårsdag - <span class="cewe-red">Stengt</span><br> '+firstDayFn()+'</p>';
-		holidaysDiv.innerHTML += '<p>Skjærtorsdag - <span class="cewe-red">Stengt</span><br> '+easterThursdayFn()+'</p>';
-		holidaysDiv.innerHTML += '<p>Langfredag - <span class="cewe-red">Stengt</span><br> '+easterFridayFn()+'</p>';
-		holidaysDiv.innerHTML += '<p>Første påskedag - <span class="cewe-red">Stengt</span><br> '+easterDateFn()+'</p>';
-		holidaysDiv.innerHTML += '<p>Andre påskedag - <span class="cewe-red">Stengt</span><br> '+easterSecondFn()+'</p>';
-		holidaysDiv.innerHTML += '<p>Kristi Himmelfartsdag - <span class="cewe-red">Stengt</span><br> '+kristiHimmelFn()+'</p>';
-		holidaysDiv.innerHTML += '<p>Arbeidernes dag - <span class="cewe-red">Stengt</span><br> '+workersDayFn()+'</p>';
-		holidaysDiv.innerHTML += '<p>17. mai - <span class="cewe-red">Stengt</span><br> '+nationalDayFn()+'</p>';
-		holidaysDiv.innerHTML += '<p>Andre pinsedag - <span class="cewe-red">Stengt</span><br> '+pinseFn()+'</p>';
-		holidaysDiv.innerHTML += '<p>Første juledag - <span class="cewe-red">Stengt</span><br> '+firstXmasDayFn()+'</p>';
-		holidaysDiv.innerHTML += '<p>Andre juledag - <span class="cewe-red">Stengt</span><br> '+secondXmasDayFn()+'</p>';
+		holidaysDiv.innerHTML += '<p>Første nyttårsdag - <span class="cewe-red">Stengt</span><br> '+fixedDatesFn(01,01)+'</p>';
+		holidaysDiv.innerHTML += '<p>Skjærtorsdag - <span class="cewe-red">Stengt</span><br> '+movingDatesFn(-3)+'</p>';
+		holidaysDiv.innerHTML += '<p>Langfredag - <span class="cewe-red">Stengt</span><br> '+movingDatesFn(-2)+'</p>';
+		holidaysDiv.innerHTML += '<p>Første påskedag - <span class="cewe-red">Stengt</span><br> '+movingDatesFn()+'</p>';
+		holidaysDiv.innerHTML += '<p>Andre påskedag - <span class="cewe-red">Stengt</span><br> '+movingDatesFn(1)+'</p>';
+		holidaysDiv.innerHTML += '<p>Kristi Himmelfartsdag - <span class="cewe-red">Stengt</span><br> '+movingDatesFn(39)+'</p>';
+		holidaysDiv.innerHTML += '<p>Arbeidernes dag - <span class="cewe-red">Stengt</span><br> '+fixedDatesFn(05,01)+'</p>';
+		holidaysDiv.innerHTML += '<p>17. mai - <span class="cewe-red">Stengt</span><br> '+fixedDatesFn(05,17)+'</p>';
+		holidaysDiv.innerHTML += '<p>Andre pinsedag - <span class="cewe-red">Stengt</span><br> '+movingDatesFn(50)+'</p>';
+		holidaysDiv.innerHTML += '<p>Første juledag - <span class="cewe-red">Stengt</span><br> '+fixedDatesFn(12,25)+'</p>';
+		holidaysDiv.innerHTML += '<p>Andre juledag - <span class="cewe-red">Stengt</span><br> '+fixedDatesFn(12,26)+'</p>';
 		
 		//Set holiday functions for NO
-		function easterThursdayFn() {
+		function movingDatesFn(numDays) {
 			//Easter thursday = easter - 3 days
 			var d = new Date(fullYear+','+easterDates[0]+','+easterDates[1]);
-			d.setDate( d.getDate() - 3);
+			if(numDays) {
+				d.setDate( d.getDate() + numDays);
+			}
 
 			return d.toLocaleDateString(dateLang,dateOptions);
 		}
 		
-		function easterFridayFn() {
-			//Easter friday = easter - 2 days
-			var d = new Date(fullYear+','+easterDates[0]+','+easterDates[1]);
-			d.setDate( d.getDate() - 2);
-		
-			return d.toLocaleDateString(dateLang,dateOptions);
-		}
-		
-		function easterDateFn() {
-			//Easter
-			var d = new Date(fullYear+','+easterDates[0]+','+easterDates[1]);
-			return d.toLocaleDateString(dateLang,dateOptions);
-		}
-		
-		function easterSecondFn() {
-			//Second easter day = easter + 1 day
-			var d = new Date(fullYear+','+easterDates[0]+','+easterDates[1]);
-			d.setDate( d.getDate() + 1);
-		
-			return d.toLocaleDateString(dateLang,dateOptions);
-		}
-		
-		function kristiHimmelFn() {
-			//Kristi himmelfart day = easter + 39 day
-			var d = new Date(fullYear+','+easterDates[0]+','+easterDates[1]);
-			d.setDate( d.getDate() + 39);
-			
-			return d.toLocaleDateString(dateLang,dateOptions);
-		}
-		
-		function pinseFn() {
-			//Pinse day = easter + 50 day
-			var d = new Date(fullYear+','+easterDates[0]+','+easterDates[1]);
-			d.setDate( d.getDate() + 50);
-			
-			return d.toLocaleDateString(dateLang,dateOptions);
-		}
-		
-		function firstDayFn() {
+		function fixedDatesFn(month,day) {
 			//01.01.
-			var firstDay = new Date(fullYear+','+01+','+01);
+			var fixedDate = new Date(fullYear+','+month+','+day);
 			
-			return firstDay.toLocaleDateString(dateLang,dateOptions);
-		}
-		
-		function workersDayFn() {
-			//01.05.
-			var workersDay = new Date(fullYear+','+05+','+01);
-
-			return workersDay.toLocaleDateString(dateLang,dateOptions);
-		}
-		
-		function nationalDayFn() {
-			//17.05.
-			var nationalDay = new Date(fullYear+','+05+','+17);
-
-			return nationalDay.toLocaleDateString(dateLang,dateOptions);
-		}
-		
-		function firstXmasDayFn() {
-			//25.12.
-			var firstXmasDay = new Date(fullYear+','+12+','+25);
-			
-			return firstXmasDay.toLocaleDateString(dateLang,dateOptions);
-		}
-		
-		function secondXmasDayFn() {
-			//26.12.
-			var secondXmasDay = new Date(fullYear+','+12+','+26);
-
-			return secondXmasDay.toLocaleDateString(dateLang,dateOptions);
+			return fixedDate.toLocaleDateString(dateLang,dateOptions);
 		}
 		
 		//Get easter date based on year
