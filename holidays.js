@@ -1,22 +1,24 @@
 document.addEventListener('DOMContentLoaded', function() {
-		var dateDiv = document.getElementById("date"); //selectElement
+	var holidaysDiv = document.getElementById("holidaysDiv"); //selectElement
+	
+	if(holidaysDiv) {
 		var fullYear = new Date().getFullYear(); //2020
 		var easterDates = getEaster(fullYear); //Easter month and day this year in array [4,6]
 		var dateOptions = { weekday: 'long', year: 'numeric', month: '2-digit', day: '2-digit' }; //Options - what to show
 		var dateLang = "no-NO"; //Date language
 		
 		//Display holidays for NO
-		dateDiv.innerHTML += '<p>Første nyttårsdag:<br> '+firstDayFn()+'</p>';
-		dateDiv.innerHTML += '<p>Skjærtorsdag:<br> '+easterThursdayFn()+'</p>';
-		dateDiv.innerHTML += '<p>Langfredag:<br> '+easterFridayFn()+'</p>';
-		dateDiv.innerHTML += '<p>Første påskedag:<br> '+easterDateFn()+'</p>';
-		dateDiv.innerHTML += '<p>Andre påskedag:<br> '+easterSecondFn()+'</p>';
-		dateDiv.innerHTML += '<p>Kristi Himmelfartsdag:<br> '+kristiHimmelFn()+'</p>';
-		dateDiv.innerHTML += '<p>Arbeidernes dag:<br> '+workersDayFn()+'</p>';
-		dateDiv.innerHTML += '<p>17. mai:<br> '+nationalDayFn()+'</p>';
-		dateDiv.innerHTML += '<p>Andre pinsedag:<br> '+pinseFn()+'</p>';
-		dateDiv.innerHTML += '<p>Første juledag:<br> '+firstXmasDayFn()+'</p>';
-		dateDiv.innerHTML += '<p>Andre juledag:<br> '+secondXmasDayFn()+'</p>';
+		holidaysDiv.innerHTML += '<p>Første nyttårsdag:<br> '+firstDayFn()+'</p>';
+		holidaysDiv.innerHTML += '<p>Skjærtorsdag:<br> '+easterThursdayFn()+'</p>';
+		holidaysDiv.innerHTML += '<p>Langfredag:<br> '+easterFridayFn()+'</p>';
+		holidaysDiv.innerHTML += '<p>Første påskedag:<br> '+easterDateFn()+'</p>';
+		holidaysDiv.innerHTML += '<p>Andre påskedag:<br> '+easterSecondFn()+'</p>';
+		holidaysDiv.innerHTML += '<p>Kristi Himmelfartsdag:<br> '+kristiHimmelFn()+'</p>';
+		holidaysDiv.innerHTML += '<p>Arbeidernes dag:<br> '+workersDayFn()+'</p>';
+		holidaysDiv.innerHTML += '<p>17. mai:<br> '+nationalDayFn()+'</p>';
+		holidaysDiv.innerHTML += '<p>Andre pinsedag:<br> '+pinseFn()+'</p>';
+		holidaysDiv.innerHTML += '<p>Første juledag:<br> '+firstXmasDayFn()+'</p>';
+		holidaysDiv.innerHTML += '<p>Andre juledag:<br> '+secondXmasDayFn()+'</p>';
 		
 		//Set holiday functions for NO
 		function easterThursdayFn() {
@@ -119,4 +121,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			return [month,day];
 		}
-	});
+	}
+});
