@@ -22,17 +22,16 @@ document.addEventListener('DOMContentLoaded', function() {
 		
 		//Set holiday functions for NO
 		function movingDatesFn(numDays) {
-			//Easter thursday = easter - 3 days
+			//Moving dates based on easter
 			var d = new Date(fullYear+','+easterDates[0]+','+easterDates[1]);
 			if(numDays) {
 				d.setDate( d.getDate() + numDays);
 			}
-
 			return d.toLocaleDateString(dateLang,dateOptions);
 		}
 		
 		function fixedDatesFn(month,day) {
-			//01.01.
+			//Fixed date based on numeric month and day
 			var fixedDate = new Date(fullYear+','+month+','+day);
 			
 			return fixedDate.toLocaleDateString(dateLang,dateOptions);
